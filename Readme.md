@@ -194,7 +194,15 @@ Option A (two terminals):
 1. Terminal 1: Run backend `uvicorn main:app --reload --port 8000`.
 2. Terminal 2: Run frontend `npm run dev`.
 
-Option B (concurrently script - future): Add a root-level script to orchestrate both.
+Option B (bash script):
+1. Make executable: `chmod +x run_dev.sh`
+2. Run: `./run_dev.sh`
+   - Exports BACKEND_PORT / FRONTEND_PORT optionally.
+
+Option C (root concurrent scripts):
+1. From repository root run: `npm install` (installs dev dependency concurrently).
+2. Run both with: `npm run dev`.
+3. Alternate script: `npm run dev:uv`.
 
 ## Usage Examples
 Natural Language Request (Frontend):
