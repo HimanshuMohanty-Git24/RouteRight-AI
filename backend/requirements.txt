@@ -13,3 +13,5 @@ ortools
 geopy
 groq
 google-search-results
+gunicorn
+python-multipart

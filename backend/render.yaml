@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: routeright-ai-backend
+    runtime: python
+    region: oregon
+    plan: free
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "uvicorn app.main:app --host 0.0.0.0 --port $PORT"
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.12"
+      - key: GROQ_API_KEY
+        sync: false
+      - key: FOURSQUARE_API_KEY
+        sync: false
+      - key: SERPAPI_API_KEY
+        sync: false
+      - key: CORS_ORIGINS
+        value: '["https://localhost:3000", "https://*.netlify.app"]'
+      - key: REDIS_HOST
+        sync: false
+      - key: REDIS_PORT
+        value: "17220"
+      - key: REDIS_USERNAME
+        value: "default"
+      - key: REDIS_PASSWORD
+        sync: false
