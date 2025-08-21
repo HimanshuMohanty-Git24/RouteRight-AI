@@ -157,9 +157,6 @@ Run the API (default FastAPI dev server):
 cd backend/app
 uvicorn main:app --reload --port 8000
 ```
-API Docs:
-- OpenAPI Swagger: http://localhost:8000/docs
-- ReDoc: http://localhost:8000/redoc
 
 ## Frontend Setup
 Prerequisites:
@@ -233,15 +230,6 @@ Add images to a future `docs/images/` directory.
 
 ## Demo Video (Placeholder)
 A recorded walkthrough / Loom / YouTube link will be embedded here.
-
-## Roadmap (High-Level)
-- Time window & opening hours constraints.
-- Live traffic & duration prediction.
-- User preferences (price tier, ratings threshold, category weighting).
-- Multi-user session persistence & auth.
-- Export to Google / Apple Maps & Calendar.
-- Offline caching & progressive enhancement.
-- Mobile-first UI refinements & accessibility audit.
 
 ## License
 This project is released under the MIT License. (Add a LICENSE file at repository root if not already present.)
