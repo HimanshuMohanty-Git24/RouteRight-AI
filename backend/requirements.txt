@@ -1,0 +1,15 @@
+fastapi
+uvicorn[standard]
+pydantic
+pydantic-settings
+langchain
+langchain-groq
+langchain-community
+langgraph
+redis
+httpx
+python-dotenv
+ortools
+geopy
+groq
+google-search-results
