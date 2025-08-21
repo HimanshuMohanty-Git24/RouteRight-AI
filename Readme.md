@@ -242,11 +242,15 @@ Response (illustrative):
 <img width="1913" height="908" alt="PlanRRAI4" src="https://github.com/user-attachments/assets/cd83edf3-cfd7-41d1-ab0f-5dee59bf0904" />
 <img width="1911" height="916" alt="PlanRRAI5" src="https://github.com/user-attachments/assets/e3d4e583-4fe0-4301-a0ea-29b0f2a8f0e7" />
 
-## Demo Video (Placeholder)
-A recorded walkthrough / Loom / YouTube link will be embedded here.
+## Demo Video
+
+
+https://github.com/user-attachments/assets/e137bace-ed22-4fff-acea-8690801ecc69
+
+
 
 ## License
-This project is released under the MIT License. (Add a LICENSE file at repository root if not already present.)
+This project is released under the MIT License.
 
 ## Acknowledgments
 - Foursquare Places API for rich place data.
@@ -257,4 +261,5 @@ This project is released under the MIT License. (Add a LICENSE file at repositor
 ---
 <p align="center">© 2025 RouteRight AI — Built with care by <a href="https://x.com/CodingHima">Himanshu Mohanty</a>.</p>
 <p align="center"><sub>All product names, logos, and brands are property of the owners. This project is for educational & productivity enhancement purposes.</sub></p>
+
 
