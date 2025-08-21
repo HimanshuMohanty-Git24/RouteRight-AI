@@ -1,0 +1,93 @@
+/* Global Modern Themed Scrollbar */
+:root {
+  --rr-color-bg-start: #0b1324;
+  --rr-color-bg-end: #09101d;
+  --rr-color-accent-start: #1b5fff;
+  --rr-color-accent-end: #00d4ff;
+  --rr-color-accent-hover-start: #4c84ff;
+  --rr-color-accent-hover-end: #29e3ff;
+  --rr-color-accent-active-start: #0f4edc;
+  --rr-color-accent-active-end: #00b6e6;
+  --rr-scrollbar-radius: 12px;
+  --rr-scrollbar-width: 14px;
+  --rr-scrollbar-track-opacity: 0.1;
+}
+
+/* Firefox */
+html, body {
+  scrollbar-color: var(--rr-color-accent-start) var(--rr-color-bg-start);
+  scrollbar-width: thin;
+}
+
+/* WebKit */
+::-webkit-scrollbar {
+  width: var(--rr-scrollbar-width);
+  height: var(--rr-scrollbar-width);
+  background: transparent;
+}
+
+::-webkit-scrollbar-track {
+  background: linear-gradient(180deg, 
+    rgba(11, 19, 36, 0.3) 0%, 
+    rgba(9, 16, 29, 0.5) 50%,
+    rgba(11, 19, 36, 0.3) 100%);
+  border-radius: var(--rr-scrollbar-radius);
+  margin-block: 6px;
+  position: relative;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, 
+    var(--rr-color-accent-start) 0%,
+    var(--rr-color-accent-end) 50%,
+    var(--rr-color-accent-start) 100%);
+  border-radius: var(--rr-scrollbar-radius);
+  border: 3px solid transparent;
+  background-clip: padding-box;
+  position: relative;
+  box-shadow: 
+    0 0 20px rgba(27, 95, 255, 0.3),
+    0 4px 15px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: scale(0.95);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, 
+    var(--rr-color-accent-hover-start) 0%,
+    var(--rr-color-accent-hover-end) 50%,
+    var(--rr-color-accent-hover-start) 100%);
+  box-shadow: 
+    0 0 25px rgba(76, 132, 255, 0.5),
+    0 6px 20px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+  transform: scale(1);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(135deg, 
+    var(--rr-color-accent-active-start) 0%,
+    var(--rr-color-accent-active-end) 50%,
+    var(--rr-color-accent-active-start) 100%);
+  box-shadow: 
+    0 0 15px rgba(15, 78, 220, 0.6),
+    0 2px 8px rgba(0, 0, 0, 0.6),
+    inset 0 2px 4px rgba(0, 0, 0, 0.3);
+  transform: scale(0.98) translateY(1px);
+}
+
+::-webkit-scrollbar-corner { background: var(--rr-color-bg-start); }
+
+/* Optional utility for any scrollable container wanting a thinner variant */
+.thin-scrollbar {
+  scrollbar-width: thin;
+}
+.thin-scrollbar::-webkit-scrollbar { width: 8px; height: 8px; }
+.thin-scrollbar::-webkit-scrollbar-thumb { border-width: 1px; }
+
+/* Smooth scrolling for nicer feel */
+html { scroll-behavior: smooth; }
