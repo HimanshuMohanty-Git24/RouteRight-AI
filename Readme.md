@@ -236,13 +236,11 @@ Response (illustrative):
 }
 ```
 
-## Screenshots (Placeholders)
-Add images to a future `docs/images/` directory.
-```
-![Home Screen](docs/images/screenshot-home.png)
-![Plan Result](docs/images/screenshot-plan.png)
-![Route Steps](docs/images/screenshot-steps.png)
-```
+## Screenshots
+<img width="1918" height="912" alt="HomePageRRAI1" src="https://github.com/user-attachments/assets/39f2c3df-8468-45dd-9989-26a46b2b0963" />
+<img width="1913" height="913" alt="PlannedRRAI3" src="https://github.com/user-attachments/assets/343350f0-7676-4b2c-b8ff-c1ebdb87323e" />
+<img width="1913" height="908" alt="PlanRRAI4" src="https://github.com/user-attachments/assets/cd83edf3-cfd7-41d1-ab0f-5dee59bf0904" />
+<img width="1911" height="916" alt="PlanRRAI5" src="https://github.com/user-attachments/assets/e3d4e583-4fe0-4301-a0ea-29b0f2a8f0e7" />
 
 ## Demo Video (Placeholder)
 A recorded walkthrough / Loom / YouTube link will be embedded here.
@@ -259,3 +257,4 @@ This project is released under the MIT License. (Add a LICENSE file at repositor
 ---
 <p align="center">© 2025 RouteRight AI — Built with care by <a href="https://x.com/CodingHima">Himanshu Mohanty</a>.</p>
 <p align="center"><sub>All product names, logos, and brands are property of the owners. This project is for educational & productivity enhancement purposes.</sub></p>
+
