@@ -72,7 +72,9 @@ Modern map & navigation tools are great at point A → B. Real life is A → B �
 - Extensible graph workflow module for future addition of constraints.
 
 ## How It Works (Agentic Flow)
-<img width="129" height="630" alt="download (2)" src="https://github.com/user-attachments/assets/efd3477e-3276-4467-9947-785f3484b0e7" />
+<p align="center">
+  <img width="129" height="630" alt="agent flow" src="https://github.com/user-attachments/assets/efd3477e-3276-4467-9947-785f3484b0e7" />
+</p>
 
 1. Intent Ingestion: User input like “Tomorrow morning: mail package, buy fresh vegetables, then grab a cappuccino near the park.”
 2. Task Decomposition Agent: Splits into atomic errands with inferred attributes.
