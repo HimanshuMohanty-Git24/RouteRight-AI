@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Stack, Box, Alert, Typography } from '@mui/material';
+import { Container, Stack, Box, Alert, Typography, useTheme } from '@mui/material';
 
+import Header from './components/Header';
+import Footer from './components/Footer';
 import HeroInput from './components/HeroInput';
 import ProgressCarousel from './components/ProgressCarousel';
-import PlanListCard from './components/PlanListCard';
+import RouteStepperCard from './components/RouteStepperCard';
 import MapPreview from './components/MapPreview';
 import FeedbackCTA from './components/FeedbackCTA';
 
@@ -11,6 +13,7 @@ import usePlanStore from './stores/planStore';
 
 function App() {
   const [currentView, setCurrentView] = useState('input');
+  const theme = useTheme();
   const {
     currentPlan,
     error,
@@ -84,35 +87,44 @@ function App() {
   };
 
   return (
-    <Box sx={{ minHeight: '100vh', bgcolor: 'background.default', py: 4 }}>
-      <Container maxWidth="md">
-        <Stack spacing={4} alignItems="center">
-          <Box textAlign="center">
-            <Typography variant="h3" component="h1" color="primary" fontWeight="bold">
-              RouteRight AI
-            </Typography>
-            <Typography color="text.secondary">
-              Your smart errand planning co-pilot
-            </Typography>
-          </Box>
+    <Box sx={{ 
+      minHeight: '100vh', 
+      background: theme.palette.background.gradient,
+      display: 'flex', 
+      flexDirection: 'column',
+      pt: { xs: 8, sm: 10 }, // Account for fixed header
+    }}>
+      <Header />
+      
+      <Box component="main" sx={{ flex: 1, py: 4 }}>
+        <Container maxWidth="md">
+          <Stack spacing={4} alignItems="center">
+            {error && currentView === 'input' && (
+              <Alert 
+                severity="error" 
+                sx={{ 
+                  width: '100%',
+                  borderRadius: 2,
+                }}
+              >
+                {error}
+              </Alert>
+            )}
 
-          {error && currentView === 'input' && (
-            <Alert severity="error" sx={{ width: '100%' }}>
-              {error}
-            </Alert>
-          )}
-
-          {currentView === 'input' && <HeroInput onSubmit={handlePlanSubmit} />}
-          {currentView === 'progress' && <ProgressCarousel />}
-          {currentView === 'results' && currentPlan && (
-            <Stack spacing={3} alignItems="center" sx={{ width: '100%' }}>
-              <PlanListCard plan={currentPlan} />
-              <MapPreview plan={currentPlan} />
-              <FeedbackCTA plan={currentPlan} onNewPlan={handleNewPlan} />
-            </Stack>
-          )}
-        </Stack>
-      </Container>
+            {currentView === 'input' && <HeroInput onSubmit={handlePlanSubmit} />}
+            {currentView === 'progress' && <ProgressCarousel />}
+            {currentView === 'results' && currentPlan && (
+              <Stack spacing={3} alignItems="center" sx={{ width: '100%' }}>
+                <RouteStepperCard plan={currentPlan} />
+                <MapPreview plan={currentPlan} />
+                <FeedbackCTA plan={currentPlan} onNewPlan={handleNewPlan} />
+              </Stack>
+            )}
+          </Stack>
+        </Container>
+      </Box>
+      
+      <Footer />
     </Box>
   );
 }

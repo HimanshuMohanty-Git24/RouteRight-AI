@@ -4,7 +4,8 @@ import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import App from './App';
-import theme from './theme';
+import getTheme from './theme';
+import { ThemeModeProvider, useThemeMode } from './contexts/ThemeContext';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -15,13 +16,24 @@ const queryClient = new QueryClient({
   },
 });
 
+const AppWrapper = () => {
+  const { mode } = useThemeMode();
+  const theme = getTheme(mode);
+
+  return (
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <App />
+    </ThemeProvider>
+  );
+};
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-      <ThemeProvider theme={theme}>
-        <CssBaseline /> {/* MUI's version of a CSS reset */}
-        <App />
-      </ThemeProvider>
+      <ThemeModeProvider>
+        <AppWrapper />
+      </ThemeModeProvider>
     </QueryClientProvider>
   </React.StrictMode>
 );
