@@ -1,6 +1,5 @@
 import axios from 'axios'
-
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
+import { API_BASE_URL } from '../utils/constants';
 
 const api = axios.create({
   baseURL: API_BASE_URL,
@@ -137,11 +136,10 @@ export const locationAPI = {
 }
 // Enhanced debugging for API calls
 console.log('🔧 API: Service initialized with base URL:', API_BASE_URL);
-console.log('🔧 API: Service initialized with base URL:', API_BASE_URL);
 
 // Test API connection on load
 console.log('🧪 API: Testing connection to backend...');
-fetch('http://localhost:8000/test')
+fetch(`${API_BASE_URL}/test`)
   .then(response => {
     console.log('🧪 API: Test response status:', response.status);
     return response.json();

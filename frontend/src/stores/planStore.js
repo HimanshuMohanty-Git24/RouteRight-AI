@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { API_BASE_URL } from '../utils/constants';
 
 // Enhanced debugging for store
 console.log('🏪 STORE: Initializing planStore');
@@ -52,7 +53,7 @@ const usePlanStore = create((set) => {
         
         // Debug endpoint call
         console.log('🔍 STORE: Calling debug endpoint first');
-        const debugResponse = await fetch('http://localhost:8000/plan-debug', {
+        const debugResponse = await fetch(`${API_BASE_URL}/plan-debug`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -68,7 +69,7 @@ const usePlanStore = create((set) => {
         
         // Make the actual API call
         console.log('📡 STORE: Making actual API call');
-        const response = await fetch('http://localhost:8000/plan', {
+        const response = await fetch(`${API_BASE_URL}/plan`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
