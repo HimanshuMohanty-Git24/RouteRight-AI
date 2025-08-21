@@ -17,11 +17,13 @@
 ---
 
 ## Table of Contents
+- [Screenshots](#screenshots)
+- [Demo Video](#demo-video)
 - [Vision](#vision)
 - [Why RouteRight AI](#why-routeright-ai)
 - [Key Features](#key-features)
 - [How It Works (Agentic Flow)](#how-it-works-agentic-flow)
-- [Architecture (Placeholder)](#architecture-placeholder)
+- [Architecture](#architecture)
 - [Tech Stack](#tech-stack)
 - [Folder Structure](#folder-structure)
 - [Backend Setup](#backend-setup)
@@ -29,11 +31,20 @@
 - [Environment Variables](#environment-variables)
 - [Running the Full Stack](#running-the-full-stack)
 - [Usage Examples](#usage-examples)
-- [Screenshots (Placeholders)](#screenshots-placeholders)
-- [Demo Video (Placeholder)](#demo-video-placeholder)
-- [Roadmap (High-Level)](#roadmap-high-level)
 - [License](#license)
 - [Acknowledgments](#acknowledgments)
+
+---
+
+## Screenshots
+<img width="1918" height="912" alt="HomePageRRAI1" src="https://github.com/user-attachments/assets/39f2c3df-8468-45dd-9989-26a46b2b0963" />
+<img width="1913" height="913" alt="PlannedRRAI3" src="https://github.com/user-attachments/assets/343350f0-7676-4b2c-b8ff-c1ebdb87323e" />
+<img width="1913" height="908" alt="PlanRRAI4" src="https://github.com/user-attachments/assets/cd83edf3-cfd7-41d1-ab0f-5dee59bf0904" />
+<img width="1911" height="916" alt="PlanRRAI5" src="https://github.com/user-attachments/assets/e3d4e583-4fe0-4301-a0ea-29b0f2a8f0e7" />
+
+## Demo Video
+
+https://github.com/user-attachments/assets/e137bace-ed22-4fff-acea-8690801ecc69
 
 ---
 
@@ -69,7 +80,8 @@ Modern map & navigation tools are great at point A → B. Real life is A → B �
 6. Formatter Agent: Produces final ordered plan with addresses, names, categories & suggested sequence.
 7. Frontend Renders: List view + (future) map visualization & progress carousel.
 
-## Architecture (Placeholder)
+## Architecture
+
 (An architecture diagram will be added here.)
 
 Suggested future diagram contents:
@@ -235,19 +247,6 @@ Response (illustrative):
   "est_duration_min": 42
 }
 ```
-
-## Screenshots
-<img width="1918" height="912" alt="HomePageRRAI1" src="https://github.com/user-attachments/assets/39f2c3df-8468-45dd-9989-26a46b2b0963" />
-<img width="1913" height="913" alt="PlannedRRAI3" src="https://github.com/user-attachments/assets/343350f0-7676-4b2c-b8ff-c1ebdb87323e" />
-<img width="1913" height="908" alt="PlanRRAI4" src="https://github.com/user-attachments/assets/cd83edf3-cfd7-41d1-ab0f-5dee59bf0904" />
-<img width="1911" height="916" alt="PlanRRAI5" src="https://github.com/user-attachments/assets/e3d4e583-4fe0-4301-a0ea-29b0f2a8f0e7" />
-
-## Demo Video
-
-
-https://github.com/user-attachments/assets/e137bace-ed22-4fff-acea-8690801ecc69
-
-
 
 ## License
 This project is released under the MIT License.
