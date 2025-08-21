@@ -1,30 +1,30 @@
 export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000'
 
 export const STEPS = {
-  decomposing: 'Understanding',
-  searching: 'Searching',
+  understanding: 'Understanding',
+  searching: 'Searching', 
   validating: 'Validating',
   optimizing: 'Optimizing',
-  formatting: 'Finalizing'
-}
+  finalizing: 'Finalizing'
+};
 
 export const STEP_MESSAGES = {
-    decomposing: 'Understanding your errands...',
-    searching: 'Finding nearby places...',
-    validating: 'Filtering best locations...',
-    optimizing: 'Calculating the best route...',
-    formatting: 'Putting it all together...'
-}
+  understanding: 'Understanding your request...',
+  searching: 'Searching for places...',
+  validating: 'Validating options...',
+  optimizing: 'Optimizing your route...',
+  finalizing: 'Finalizing your plan...',
+  complete: 'Your plan is ready!'
+};
 
 export const CATEGORY_ICONS = {
   grocery: '🛒',
   pharmacy: '💊',
-  bank: '🏦',
   gas: '⛽',
   coffee: '☕',
   restaurant: '🍽️',
+  bank: '🏦',
+  hardware: '🔨',
   shopping: '🛍️',
-  hardware: '🛠️',
-  "post office": '🏤',
   default: '📍'
-}
+};

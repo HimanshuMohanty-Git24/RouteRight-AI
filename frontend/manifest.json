@@ -1,0 +1,16 @@
+{
+  "name": "RouteRight AI - Smart Errand Planning",
+  "short_name": "RouteRight AI",
+  "description": "AI-powered errand planning and route optimization",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1976d2",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}

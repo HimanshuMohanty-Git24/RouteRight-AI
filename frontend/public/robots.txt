@@ -1,0 +1,47 @@
+# Robots.txt for RouteRight AI - Smart Errand Planning & Route Optimization
+# This file tells search engine crawlers which URLs they can access on your site.
+
+# Allow all crawlers to access the entire site
+User-agent: *
+Allow: /
+
+# Disallow crawling of development/testing files
+Disallow: /test/
+Disallow: /dev/
+Disallow: /.env
+Disallow: /config/
+
+# Disallow crawling of user-generated content (if any)
+Disallow: /api/
+Disallow: /feedback/
+Disallow: /user-data/
+
+# Allow crawling of static assets
+Allow: /assets/
+Allow: /public/
+Allow: /favicon.png
+Allow: /logo.png
+Allow: /manifest.json
+
+# Common SEO directives
+Allow: /sitemap.xml
+
+# Sitemap location (you can create this later)
+Sitemap: https://routeright-ai.com/sitemap.xml
+
+# Crawl delay (optional - helps prevent server overload)
+Crawl-delay: 1
+
+# Specific directives for major search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Block any malicious or unwanted bots (optional)
+User-agent: BadBot
+Disallow: /
+
+User-agent: ScrapeBot
+Disallow: /

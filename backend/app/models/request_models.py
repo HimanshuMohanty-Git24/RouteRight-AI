@@ -19,4 +19,4 @@ class FeedbackRequest(BaseModel):
     overall_rating: int
     stops_feedback: List[FeedbackStop]
     comments: Optional[str] = None
-    created_at: Optional[datetime] = None
+    created_at: Optional[str] = None  # Change from datetime to str to handle ISO strings

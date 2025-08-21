@@ -92,12 +92,19 @@ export const planAPI = {
     }
   },
 
-  submitFeedback: async (planId, feedback) => {
-    const response = await api.post('/feedback', {
-      plan_id: planId,
-      stop_feedback: feedback
-    })
-    return response.data
+  submitFeedback: async (planId, feedbackData) => {
+    console.log('📤 API: Submitting feedback for plan:', planId);
+    console.log('📤 API: Feedback data:', feedbackData);
+    
+    try {
+      const response = await api.post('/feedback', feedbackData);
+      console.log('✅ API: Feedback submitted successfully:', response.data);
+      return response.data;
+    } catch (error) {
+      console.error('❌ API: Feedback submission failed:', error);
+      console.error('❌ API: Error response:', error.response?.data);
+      throw error;
+    }
   },
 }
 
