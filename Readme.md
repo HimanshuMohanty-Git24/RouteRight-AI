@@ -72,6 +72,8 @@ Modern map & navigation tools are great at point A → B. Real life is A → B �
 - Extensible graph workflow module for future addition of constraints.
 
 ## How It Works (Agentic Flow)
+<img width="129" height="630" alt="download (2)" src="https://github.com/user-attachments/assets/efd3477e-3276-4467-9947-785f3484b0e7" />
+
 1. Intent Ingestion: User input like “Tomorrow morning: mail package, buy fresh vegetables, then grab a cappuccino near the park.”
 2. Task Decomposition Agent: Splits into atomic errands with inferred attributes.
 3. Place Search Agent: Queries Foursquare (and optionally SERP) for candidate venues matching each task.
@@ -349,5 +351,6 @@ This project is released under the MIT License.
 ---
 <p align="center">© 2025 RouteRight AI — Built with care by <a href="https://x.com/CodingHima">Himanshu Mohanty</a>.</p>
 <p align="center"><sub>All product names, logos, and brands are property of the owners. This project is for educational & productivity enhancement purposes.</sub></p>
+
 
 
