@@ -82,10 +82,99 @@ Modern map & navigation tools are great at point A → B. Real life is A → B �
 
 ## Architecture
 
-(An architecture diagram will be added here.)
+```mermaid
+graph TB
+    subgraph "User Interface Layer"
+        User[👤 User] 
+        User --> |"Natural Language Query<br/>e.g. 'Find romantic restaurants near Central Park'"| FE[⚛️ React Frontend]
+        FE --> |"Gets GPS coordinates"| BrowserAPI[📍 Browser Geolocation API]
+        BrowserAPI --> |"lat: 40.7829, lng: -73.9654"| FE
+        FE --> |"State: query, location, loading, results"| Zustand[🏪 Zustand Store]
+        FE --> |"HTTP POST /api/v1/plan"| APIClient[📡 Axios Client]
+    end
 
-Suggested future diagram contents:
-- User → Frontend → FastAPI Endpoints → Agent Orchestrator → Specialized Agents → External APIs (Foursquare, SERP, Routing) → Response Models → Frontend UI.
+    subgraph "API Gateway & Request Processing"
+        APIClient --> |"Payload: {query, lat, lng, preferences}"| FastAPI[🖥️ FastAPI Server]
+        FastAPI --> |"Request validation & routing"| Middleware[🔒 Auth & Rate Limiting]
+        Middleware --> |"Validated request object"| LangGraph[🎯 LangGraph Orchestrator]
+    end
+
+    subgraph "Agentic Workflow Pipeline"
+        LangGraph --> |"Raw query analysis"| Decomposer[🧠 Query Decomposer Agent]
+        
+        Decomposer --> |"Structured task array:<br/>• category: 'restaurant'<br/>• cuisine: 'romantic'<br/>• location: 'Central Park'<br/>• radius: 2km"| Searcher[🔍 Place Search Agent]
+        
+        Searcher --> |"Candidate places array:<br/>• [{name, address, rating, price}]<br/>• Raw API responses<br/>• Duplicate entries"| Validator[✅ Validation Agent]
+        
+        Validator --> |"Filtered places array:<br/>• Deduplicated locations<br/>• Verified open hours<br/>• Quality score > 4.0"| Optimizer[🗺️ Route Optimization Agent]
+        
+        Optimizer --> |"Optimized route object:<br/>• waypoints: [lat,lng pairs]<br/>• estimated_time: 180min<br/>• total_distance: 5.2km<br/>• route_order: [0,2,1,3]"| Formatter[📋 Response Formatter]
+        
+        Formatter --> |"Final structured response"| LangGraph
+    end
+
+    subgraph "Core Services & Data Layer"
+        ServiceLayer[⚙️ Service Layer Manager]
+        
+        subgraph "Cache Layer"
+            Redis[💾 Redis Cache]
+            CacheKeys["🔑 Cache Keys:<br/>• query_hash:results<br/>• place_id:details<br/>• route_cache:optimized_path"]
+        end
+        
+        subgraph "Optimization Engine"
+            ORTools[🧮 Google OR-Tools]
+            TSPSolver["📐 TSP Solver:<br/>• Distance matrix<br/>• Time constraints<br/>• Vehicle routing"]
+        end
+    end
+
+    subgraph "External API Integrations"
+        subgraph "LLM Services"
+            Groq[🤖 Groq LLM API]
+            GroqModels["📚 Models:<br/>• llama-3.1-70b reasoning<br/>• mixtral-8x7b fast responses"]
+        end
+        
+        subgraph "Places Data"
+            Foursquare[🏢 Foursquare Places API]
+            FoursquareData["📊 Returns:<br/>• venue details<br/>• photos, reviews<br/>• categories, hours"]
+            
+            SerpAPI[🔍 SerpAPI Google Places]
+            SerpData["📊 Returns:<br/>• search results<br/>• business info<br/>• real-time data"]
+        end
+    end
+
+    %% Service connections
+    Decomposer -.-> ServiceLayer
+    Searcher -.-> ServiceLayer
+    Validator -.-> ServiceLayer
+    Optimizer -.-> ServiceLayer
+    
+    ServiceLayer --> |"Cache lookup/store"| Redis
+    ServiceLayer --> |"Route optimization requests"| ORTools
+    
+    ServiceLayer --> |"Query analysis requests"| Groq
+    ServiceLayer --> |"Place search requests"| Foursquare
+    ServiceLayer --> |"Backup search requests"| SerpAPI
+
+    %% Response flow
+    LangGraph --> |"Formatted response JSON"| FastAPI
+    FastAPI --> |"HTTP 200 + structured plan"| APIClient
+    APIClient --> |"Update UI state"| Zustand
+    Zustand --> |"Render results"| FE
+    FE --> |"Display interactive map + itinerary"| User
+
+    %% Styling
+    classDef userLayer fill:#e3f2fd,stroke:#1976d2
+    classDef apiLayer fill:#f3e5f5,stroke:#7b1fa2
+    classDef agentLayer fill:#fff3e0,stroke:#f57c00
+    classDef serviceLayer fill:#e8f5e8,stroke:#388e3c
+    classDef externalLayer fill:#fce4ec,stroke:#c2185b
+
+    class User,FE,BrowserAPI,Zustand,APIClient userLayer
+    class FastAPI,Middleware,LangGraph apiLayer
+    class Decomposer,Searcher,Validator,Optimizer,Formatter agentLayer
+    class ServiceLayer,Redis,CacheKeys,ORTools,TSPSolver serviceLayer
+    class Groq,GroqModels,Foursquare,FoursquareData,SerpAPI,SerpData externalLayer
+```
 
 ## Tech Stack
 Backend:
