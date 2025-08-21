@@ -36,8 +36,8 @@ logger.info(f"🚀 Starting RouteRight AI API - Environment: {'Production' if IS
 if IS_PRODUCTION:
     # Production CORS - more restrictive
     cors_origins = [
-        "https://*.netlify.app",
-        "https://*.vercel.app"
+        "https://routerightai.netlify.app",
+        "https://routerightai.netlify.app"
     ]
 else:
     # Development CORS - more permissive
