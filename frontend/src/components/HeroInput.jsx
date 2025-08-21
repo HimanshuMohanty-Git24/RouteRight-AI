@@ -59,13 +59,17 @@ const HeroInput = ({ onSubmit }) => {
           <Stack spacing={3} alignItems="center" textAlign="center">
             <Box
               sx={{
-                p: 2,
+                width: 80,
+                height: 80,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
                 borderRadius: '50%',
                 background: `linear-gradient(135deg, ${theme.palette.primary.main}20, ${theme.palette.secondary.main}20)`,
                 border: `2px solid ${theme.palette.primary.main}30`,
               }}
             >
-              <Sparkles size={48} color={theme.palette.primary.main} />
+              <Sparkles size={40} color={theme.palette.primary.main} />
             </Box>
             
             <Typography 
