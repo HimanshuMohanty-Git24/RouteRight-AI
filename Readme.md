@@ -173,21 +173,44 @@ The app will start (default Vite) at: http://localhost:5173 (shown in console).
 Ensure the backend is accessible; configure base URL via environment variable (see below).
 
 ## Environment Variables
-Create a `.env` file (backend root) with:
-```
-FOURSQUARE_API_KEY=your_key_here
-SERPAPI_API_KEY=your_key_here            # optional if using serpapi_service
-GROQ_API_KEY=your_groq_key               # Groq key for LLM inference
-GROQ_MODEL=llama-3.3-70b-versatile       # example model id; adjust as needed
-ROUTING_PROVIDER=ors                     # example placeholder
+
+Backend (.env or backend/.env):
+Refer to backend/.env.example. Copy and adjust:
+```env
+GROQ_API_KEY="YOUR_GROQ_API_KEY"
+FOURSQUARE_API_KEY="YOUR_FOURSQUARE_API_KEY"
+SERPAPI_API_KEY="YOUR_SERPAPI_API_KEY"  # optional
+GROQ_MODEL="llama-3.3-70b-versatile"
+ROUTING_PROVIDER="ors"
 CACHE_TTL_SECONDS=600
-LOG_LEVEL=info
+LOG_LEVEL="info"
+CORS_ORIGINS='["http://localhost:5173"]'
+REDIS_HOST="your_redis_host"
+REDIS_PORT=17220
+REDIS_USERNAME="default"
+REDIS_PASSWORD="your_redis_password"
 ```
-Frontend `.env` (at `frontend/`):
+Masked example (DO NOT USE IN PROD) for local experimentation:
+```env
+GROQ_API_KEY="gsk_7BbiZG********************21AVbFS4F"
+FOURSQUARE_API_KEY="FHKMRO********************VOZ2AU"
+SERPAPI_API_KEY="58680e********************d4db8af"
+GROQ_MODEL="llama-3.3-70b-versatile"
+ROUTING_PROVIDER="ors"
+CACHE_TTL_SECONDS=600
+LOG_LEVEL="info"
+CORS_ORIGINS='["http://localhost:5173"]'
+REDIS_HOST="redis-17220.c14.us-east-1-3.ec2.redns.redis-cloud.com"
+REDIS_PORT=17220
+REDIS_USERNAME="default"
+REDIS_PASSWORD="f4UFnDGN********************h96B"
 ```
+
+Frontend (frontend/.env):
+```env
 VITE_API_BASE_URL=http://localhost:8000
 ```
-(You can add additional keys for feature flags or map providers later.)
+Never commit actual secrets. Add *.env to .gitignore if not already present.
 
 ## Running the Full Stack
 Option A (two terminals):
