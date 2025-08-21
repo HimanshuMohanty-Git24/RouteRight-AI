@@ -190,21 +190,6 @@ REDIS_PORT=17220
 REDIS_USERNAME="default"
 REDIS_PASSWORD="your_redis_password"
 ```
-Masked example (DO NOT USE IN PROD) for local experimentation:
-```env
-GROQ_API_KEY="gsk_7BbiZG********************21AVbFS4F"
-FOURSQUARE_API_KEY="FHKMRO********************VOZ2AU"
-SERPAPI_API_KEY="58680e********************d4db8af"
-GROQ_MODEL="llama-3.3-70b-versatile"
-ROUTING_PROVIDER="ors"
-CACHE_TTL_SECONDS=600
-LOG_LEVEL="info"
-CORS_ORIGINS='["http://localhost:5173"]'
-REDIS_HOST="redis-17220.c14.us-east-1-3.ec2.redns.redis-cloud.com"
-REDIS_PORT=17220
-REDIS_USERNAME="default"
-REDIS_PASSWORD="f4UFnDGN********************h96B"
-```
 
 Frontend (frontend/.env):
 ```env
@@ -272,5 +257,5 @@ This project is released under the MIT License. (Add a LICENSE file at repositor
 - Groq for high-performance LLM inference via langchain-groq.
 
 ---
-<p align="center">© 2024 RouteRight AI — Built with care by <a href="https://x.com/CodingHima">Himanshu Mohanty</a>.</p>
-<p align="center"><sub>All product names, logos, and brands are property of their respective owners. This project is for educational & productivity enhancement purposes.</sub></p>
+<p align="center">© 2025 RouteRight AI — Built with care by <a href="https://x.com/CodingHima">Himanshu Mohanty</a>.</p>
+<p align="center"><sub>All product names, logos, and brands are property of the owners. This project is for educational & productivity enhancement purposes.</sub></p>
