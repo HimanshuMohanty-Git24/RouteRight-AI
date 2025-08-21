@@ -45,24 +45,22 @@ class SerpAPIService:
             return None
 
         try:
-            # Build Google Maps URL manually instead of using SerpAPI
-            # Start with user location
+            # Build Google Maps URL with user location as explicit starting point
             origin = f"{user_location['lat']},{user_location['lng']}"
-            destination = f"{stops[-1]['lat']},{stops[-1]['lng']}"
             
-            # Add waypoints if there are intermediate stops
-            waypoints = []
-            if len(stops) > 1:
-                for stop in stops[:-1]:  # All stops except the last one
-                    waypoints.append(f"{stop['lat']},{stop['lng']}")
+            # All stops become destinations
+            destinations = []
+            for stop in stops:
+                destinations.append(f"{stop['lat']},{stop['lng']}")
             
-            # Build the Google Maps URL
+            # Build the Google Maps URL using the proper format
             base_url = "https://www.google.com/maps/dir/"
-            url_parts = [origin]
-            url_parts.extend(waypoints)
-            url_parts.append(destination)
             
-            map_url = base_url + "/".join(url_parts)
+            if destinations:
+                # Use URL encoding for better compatibility
+                map_url = base_url + origin + "/" + "/".join(destinations)
+            else:
+                map_url = base_url + origin
             
             logger.info(f"✅ Generated Google Maps URL: {map_url}")
             return map_url
