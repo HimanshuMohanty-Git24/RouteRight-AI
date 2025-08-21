@@ -29,7 +29,7 @@ const Header = () => {
         <Stack direction="row" alignItems="center" spacing={2}>
           <Box
             component="img"
-            src="/src/assets/logo.png"
+            src="/logo.png"
             alt="RouteRight AI"
             sx={{ 
               height: 40, 
